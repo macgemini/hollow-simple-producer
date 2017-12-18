@@ -6,45 +6,45 @@ import com.netflix.hollow.core.schema.HollowObjectSchema;
 import com.netflix.hollow.core.index.HollowPrimaryKeyIndex;
 import com.netflix.hollow.core.read.engine.HollowReadStateEngine;
 
-public class StringPrimaryKeyIndex implements HollowConsumer.RefreshListener {
+public class AlreadyAppliedPrimaryKeyIndex implements HollowConsumer.RefreshListener {
 
     private HollowPrimaryKeyIndex idx;
-    private MovieAPI api;
+    private AlreadyAppliedAPI api;
 
-    public StringPrimaryKeyIndex(HollowConsumer consumer) {
-        this(consumer, ((HollowObjectSchema)consumer.getStateEngine().getSchema("String")).getPrimaryKey().getFieldPaths());
+    public AlreadyAppliedPrimaryKeyIndex(HollowConsumer consumer) {
+        this(consumer, ((HollowObjectSchema)consumer.getStateEngine().getSchema("AlreadyApplied")).getPrimaryKey().getFieldPaths());
     }
 
-    public StringPrimaryKeyIndex(HollowConsumer consumer, String... fieldPaths) {
+    public AlreadyAppliedPrimaryKeyIndex(HollowConsumer consumer, String... fieldPaths) {
         consumer.getRefreshLock().lock();
         try {
-            this.api = (MovieAPI)consumer.getAPI();
-            this.idx = new HollowPrimaryKeyIndex(consumer.getStateEngine(), "String", fieldPaths);
+            this.api = (AlreadyAppliedAPI)consumer.getAPI();
+            this.idx = new HollowPrimaryKeyIndex(consumer.getStateEngine(), "AlreadyApplied", fieldPaths);
             idx.listenForDeltaUpdates();
             consumer.addRefreshListener(this);
         } catch(ClassCastException cce) {
-            throw new ClassCastException("The HollowConsumer provided was not created with the MovieAPI generated API class.");
+            throw new ClassCastException("The HollowConsumer provided was not created with the AlreadyAppliedAPI generated API class.");
         } finally {
             consumer.getRefreshLock().unlock();
         }
     }
 
-    public HString findMatch(Object... keys) {
+    public AlreadyApplied findMatch(Object... keys) {
         int ordinal = idx.getMatchingOrdinal(keys);
         if(ordinal == -1)
             return null;
-        return api.getHString(ordinal);
+        return api.getAlreadyApplied(ordinal);
     }
 
     @Override public void snapshotUpdateOccurred(HollowAPI api, HollowReadStateEngine stateEngine, long version) throws Exception {
         idx.detachFromDeltaUpdates();
         idx = new HollowPrimaryKeyIndex(stateEngine, idx.getPrimaryKey());
         idx.listenForDeltaUpdates();
-        this.api = (MovieAPI)api;
+        this.api = (AlreadyAppliedAPI)api;
     }
 
     @Override public void deltaUpdateOccurred(HollowAPI api, HollowReadStateEngine stateEngine, long version) throws Exception {
-        this.api = (MovieAPI)api;
+        this.api = (AlreadyAppliedAPI)api;
     }
 
     @Override public void refreshStarted(long currentVersion, long requestedVersion) { }

@@ -5,23 +5,23 @@ import com.netflix.hollow.core.read.dataaccess.HollowObjectTypeDataAccess;
 import com.netflix.hollow.core.schema.HollowObjectSchema;
 
 @SuppressWarnings("all")
-public class StringDelegateLookupImpl extends HollowObjectAbstractDelegate implements StringDelegate {
+public class AlreadyAppliedDelegateLookupImpl extends HollowObjectAbstractDelegate implements AlreadyAppliedDelegate {
 
-    private final StringTypeAPI typeAPI;
+    private final AlreadyAppliedTypeAPI typeAPI;
 
-    public StringDelegateLookupImpl(StringTypeAPI typeAPI) {
+    public AlreadyAppliedDelegateLookupImpl(AlreadyAppliedTypeAPI typeAPI) {
         this.typeAPI = typeAPI;
     }
 
-    public String getValue(int ordinal) {
-        return typeAPI.getValue(ordinal);
+    public int getOfferId(int ordinal) {
+        return typeAPI.getOfferId(ordinal);
     }
 
-    public boolean isValueEqual(int ordinal, String testValue) {
-        return typeAPI.isValueEqual(ordinal, testValue);
+    public Integer getOfferIdBoxed(int ordinal) {
+        return typeAPI.getOfferIdBoxed(ordinal);
     }
 
-    public StringTypeAPI getTypeAPI() {
+    public AlreadyAppliedTypeAPI getTypeAPI() {
         return typeAPI;
     }
 

@@ -26,7 +26,7 @@ import java.io.IOException;
 
 public class APIGenerator {
     
-    private static final String GENERATED_API_NAME = "MovieAPI";
+    private static final String GENERATED_API_NAME = "AlreadyAppliedAPI";
     
     private static final String DATA_MODEL_PACKAGE = "how.hollow.producer.datamodel";
     private static final String GENERATED_API_PACKAGE = "how.hollow.consumer.api.generated";

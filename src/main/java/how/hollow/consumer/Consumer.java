@@ -22,11 +22,10 @@ import com.netflix.hollow.api.consumer.fs.HollowFilesystemAnnouncementWatcher;
 import com.netflix.hollow.api.consumer.fs.HollowFilesystemBlobRetriever;
 import com.netflix.hollow.explorer.ui.jetty.HollowExplorerUIServer;
 import com.netflix.hollow.history.ui.jetty.HollowHistoryUIServer;
-import how.hollow.consumer.api.generated.Actor;
-import how.hollow.consumer.api.generated.Movie;
-import how.hollow.consumer.api.generated.MovieAPI;
-import how.hollow.consumer.api.generated.MovieAPIHashIndex;
-import how.hollow.consumer.api.generated.MoviePrimaryKeyIndex;
+import how.hollow.consumer.api.generated.AlreadyApplied;
+import how.hollow.consumer.api.generated.AlreadyAppliedAPI;
+import how.hollow.consumer.api.generated.AlreadyAppliedAPIHashIndex;
+import how.hollow.consumer.api.generated.AlreadyAppliedPrimaryKeyIndex;
 import how.hollow.producer.Producer;
 import java.io.File;
 
@@ -42,7 +41,7 @@ public class Consumer {
         
         HollowConsumer consumer = HollowConsumer.withBlobRetriever(blobRetriever)
                                                 .withAnnouncementWatcher(announcementWatcher)
-                                                .withGeneratedAPIClass(MovieAPI.class)
+                                                .withGeneratedAPIClass(AlreadyAppliedAPI.class)
                                                 .build();
         
         consumer.triggerRefresh();
@@ -62,21 +61,12 @@ public class Consumer {
 
     private static void hereIsHowToUseTheDataProgrammatically(HollowConsumer consumer) {
         /// create an index for AlreadyApplied based on its primary key (Id)
-        MoviePrimaryKeyIndex idx = new MoviePrimaryKeyIndex(consumer);
-        /// create an index for movies by the names of cast members
-        MovieAPIHashIndex moviesByActorName = new MovieAPIHashIndex(consumer, "AlreadyApplied", "", "favorites.element.actorName.value");
+        AlreadyAppliedPrimaryKeyIndex idx = new AlreadyAppliedPrimaryKeyIndex(consumer);
 
         /// find the movie for a some known ID
-        Movie foundMovie = idx.findMatch(1000004);
-        
-        /// for each actor in that movie
-        for(Actor actor : foundMovie.getActors()) {
-            /// get all of movies of which they are cast members
-            for(Movie movie : moviesByActorName.findMovieMatches(actor.getActorName().getValue())) {
-                /// and just print the result
-                System.out.println(actor.getActorName().getValue() + " starred in " + movie.getTitle().getValue());
-            }
-        }
+        AlreadyApplied foundAlreadyApplied = idx.findMatch(1000004);
+
+        System.out.println("Found: " + foundAlreadyApplied.getOfferId());
     }
     
 }

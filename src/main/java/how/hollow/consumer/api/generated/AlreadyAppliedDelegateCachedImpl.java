@@ -7,24 +7,22 @@ import com.netflix.hollow.api.custom.HollowTypeAPI;
 import com.netflix.hollow.api.objects.delegate.HollowCachedDelegate;
 
 @SuppressWarnings("all")
-public class StringDelegateCachedImpl extends HollowObjectAbstractDelegate implements HollowCachedDelegate, StringDelegate {
+public class AlreadyAppliedDelegateCachedImpl extends HollowObjectAbstractDelegate implements HollowCachedDelegate, AlreadyAppliedDelegate {
 
-    private final String value;
-   private StringTypeAPI typeAPI;
+    private final Integer offerId;
+   private AlreadyAppliedTypeAPI typeAPI;
 
-    public StringDelegateCachedImpl(StringTypeAPI typeAPI, int ordinal) {
-        this.value = typeAPI.getValue(ordinal);
+    public AlreadyAppliedDelegateCachedImpl(AlreadyAppliedTypeAPI typeAPI, int ordinal) {
+        this.offerId = typeAPI.getOfferIdBoxed(ordinal);
         this.typeAPI = typeAPI;
     }
 
-    public String getValue(int ordinal) {
-        return value;
+    public int getOfferId(int ordinal) {
+        return offerId.intValue();
     }
 
-    public boolean isValueEqual(int ordinal, String testValue) {
-        if(testValue == null)
-            return value == null;
-        return testValue.equals(value);
+    public Integer getOfferIdBoxed(int ordinal) {
+        return offerId;
     }
 
     @Override
@@ -37,12 +35,12 @@ public class StringDelegateCachedImpl extends HollowObjectAbstractDelegate imple
         return typeAPI.getTypeDataAccess();
     }
 
-    public StringTypeAPI getTypeAPI() {
+    public AlreadyAppliedTypeAPI getTypeAPI() {
         return typeAPI;
     }
 
     public void updateTypeAPI(HollowTypeAPI typeAPI) {
-        this.typeAPI = (StringTypeAPI) typeAPI;
+        this.typeAPI = (AlreadyAppliedTypeAPI) typeAPI;
     }
 
 }

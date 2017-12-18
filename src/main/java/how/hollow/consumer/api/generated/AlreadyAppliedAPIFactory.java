@@ -7,26 +7,26 @@ import com.netflix.hollow.core.read.dataaccess.HollowDataAccess;
 import java.util.Collections;
 import java.util.Set;
 
-public class MovieAPIFactory implements HollowAPIFactory {
+public class AlreadyAppliedAPIFactory implements HollowAPIFactory {
 
     private final Set<String> cachedTypes;
 
-    public MovieAPIFactory() {
+    public AlreadyAppliedAPIFactory() {
         this(Collections.<String>emptySet());
     }
 
-    public MovieAPIFactory(Set<String> cachedTypes) {
+    public AlreadyAppliedAPIFactory(Set<String> cachedTypes) {
         this.cachedTypes = cachedTypes;
     }
 
     @Override
     public HollowAPI createAPI(HollowDataAccess dataAccess) {
-        return new MovieAPI(dataAccess, cachedTypes);
+        return new AlreadyAppliedAPI(dataAccess, cachedTypes);
     }
 
     @Override
     public HollowAPI createAPI(HollowDataAccess dataAccess, HollowAPI previousCycleAPI) {
-        return new MovieAPI(dataAccess, cachedTypes, Collections.<String, HollowFactory<?>>emptyMap(), (MovieAPI) previousCycleAPI);
+        return new AlreadyAppliedAPI(dataAccess, cachedTypes, Collections.<String, HollowFactory<?>>emptyMap(), (AlreadyAppliedAPI) previousCycleAPI);
     }
 
 }
