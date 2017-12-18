@@ -1,4 +1,4 @@
-package how.hollow.consumer.api.generated;
+package pl.pracuj.bigdata.hollow.consumer.api.generated;
 
 import com.netflix.hollow.api.custom.HollowObjectTypeAPI;
 import com.netflix.hollow.core.read.dataaccess.HollowObjectTypeDataAccess;

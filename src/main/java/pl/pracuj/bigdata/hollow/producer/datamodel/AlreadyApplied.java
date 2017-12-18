@@ -15,7 +15,7 @@
  *     limitations under the License.
  *
  */
-package how.hollow.producer.datamodel;
+package pl.pracuj.bigdata.hollow.producer.datamodel;
 
 import com.netflix.hollow.core.write.objectmapper.HollowHashKey;
 import com.netflix.hollow.core.write.objectmapper.HollowPrimaryKey;

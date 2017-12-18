@@ -1,4 +1,4 @@
-package how.hollow.producer;
+package pl.pracuj.bigdata.hollow.producer;
 
 import com.netflix.hollow.api.consumer.HollowConsumer.AnnouncementWatcher;
 import com.netflix.hollow.api.consumer.HollowConsumer.BlobRetriever;
@@ -9,8 +9,8 @@ import com.netflix.hollow.api.producer.HollowProducer.Announcer;
 import com.netflix.hollow.api.producer.HollowProducer.Publisher;
 import com.netflix.hollow.api.producer.fs.HollowFilesystemAnnouncer;
 import com.netflix.hollow.api.producer.fs.HollowFilesystemPublisher;
-import how.hollow.producer.datamodel.AlreadyApplied;
-import how.hollow.producer.datamodel.SourceDataRetriever;
+import pl.pracuj.bigdata.hollow.producer.datamodel.AlreadyApplied;
+import pl.pracuj.bigdata.hollow.producer.datamodel.SourceDataRetriever;
 import java.io.File;
 
 

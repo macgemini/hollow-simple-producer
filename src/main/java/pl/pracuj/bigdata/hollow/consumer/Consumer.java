@@ -15,18 +15,18 @@
  *     limitations under the License.
  *
  */
-package how.hollow.consumer;
+package pl.pracuj.bigdata.hollow.consumer;
 
 import com.netflix.hollow.api.consumer.HollowConsumer;
 import com.netflix.hollow.api.consumer.fs.HollowFilesystemAnnouncementWatcher;
 import com.netflix.hollow.api.consumer.fs.HollowFilesystemBlobRetriever;
 import com.netflix.hollow.explorer.ui.jetty.HollowExplorerUIServer;
 import com.netflix.hollow.history.ui.jetty.HollowHistoryUIServer;
-import how.hollow.consumer.api.generated.AlreadyApplied;
-import how.hollow.consumer.api.generated.AlreadyAppliedAPI;
-import how.hollow.consumer.api.generated.AlreadyAppliedAPIHashIndex;
-import how.hollow.consumer.api.generated.AlreadyAppliedPrimaryKeyIndex;
-import how.hollow.producer.Producer;
+import pl.pracuj.bigdata.hollow.consumer.api.generated.AlreadyApplied;
+import pl.pracuj.bigdata.hollow.consumer.api.generated.AlreadyAppliedAPI;
+import pl.pracuj.bigdata.hollow.consumer.api.generated.AlreadyAppliedPrimaryKeyIndex;
+import pl.pracuj.bigdata.hollow.producer.Producer;
+
 import java.io.File;
 
 public class Consumer {

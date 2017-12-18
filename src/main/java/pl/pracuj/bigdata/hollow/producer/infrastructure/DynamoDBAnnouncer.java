@@ -15,7 +15,7 @@
  *     limitations under the License.
  *
  */
-package how.hollow.producer.infrastructure;
+package pl.pracuj.bigdata.hollow.producer.infrastructure;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
