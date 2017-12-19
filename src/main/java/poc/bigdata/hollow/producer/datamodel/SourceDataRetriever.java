@@ -15,7 +15,7 @@
  *     limitations under the License.
  *
  */
-package pl.pracuj.bigdata.hollow.producer.datamodel;
+package poc.bigdata.hollow.producer.datamodel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +69,7 @@ public class SourceDataRetriever {
     private List<AlreadyApplied> bootstrapData() {
         nextAlreadyAppliedId = 1000000;
 
-        for(int i=0;i<10000;i++)
+        for(int i=0;i<100000;i++)
             allAlreadyApplieds.add(generateNewRandomAlreadyApplied());
         
         return allAlreadyApplieds;

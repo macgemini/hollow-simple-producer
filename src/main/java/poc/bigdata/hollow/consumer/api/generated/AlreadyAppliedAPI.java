@@ -1,4 +1,4 @@
-package pl.pracuj.bigdata.hollow.consumer.api.generated;
+package poc.bigdata.hollow.consumer.api.generated;
 
 import java.util.Collection;
 import java.util.Collections;

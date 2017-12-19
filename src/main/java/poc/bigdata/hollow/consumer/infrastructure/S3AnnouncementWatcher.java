@@ -15,14 +15,14 @@
  *     limitations under the License.
  *
  */
-package pl.pracuj.bigdata.hollow.consumer.infrastructure;
+package poc.bigdata.hollow.consumer.infrastructure;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.netflix.hollow.api.consumer.HollowConsumer;
 import com.netflix.hollow.api.consumer.HollowConsumer.AnnouncementWatcher;
-import pl.pracuj.bigdata.hollow.producer.infrastructure.S3Announcer;
+import poc.bigdata.hollow.producer.infrastructure.S3Announcer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

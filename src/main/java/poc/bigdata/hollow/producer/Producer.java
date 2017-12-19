@@ -1,4 +1,4 @@
-package pl.pracuj.bigdata.hollow.producer;
+package poc.bigdata.hollow.producer;
 
 import com.netflix.hollow.api.consumer.HollowConsumer.AnnouncementWatcher;
 import com.netflix.hollow.api.consumer.HollowConsumer.BlobRetriever;
@@ -9,18 +9,19 @@ import com.netflix.hollow.api.producer.HollowProducer.Announcer;
 import com.netflix.hollow.api.producer.HollowProducer.Publisher;
 import com.netflix.hollow.api.producer.fs.HollowFilesystemAnnouncer;
 import com.netflix.hollow.api.producer.fs.HollowFilesystemPublisher;
-import pl.pracuj.bigdata.hollow.producer.datamodel.AlreadyApplied;
-import pl.pracuj.bigdata.hollow.producer.datamodel.SourceDataRetriever;
+import poc.bigdata.hollow.producer.datamodel.AlreadyApplied;
+import poc.bigdata.hollow.producer.datamodel.SourceDataRetriever;
 import java.io.File;
 
 
 public class Producer {
     
     public static final String SCRATCH_DIR = System.getProperty("java.io.tmpdir");
-    private static final long MIN_TIME_BETWEEN_CYCLES = 10000;
+    private static final long MIN_TIME_BETWEEN_CYCLES = 5000;
 
     public static void main(String args[]) {
         File publishDir = new File(SCRATCH_DIR, "publish-dir");
+        publishDir.delete();
         publishDir.mkdir();
 
 

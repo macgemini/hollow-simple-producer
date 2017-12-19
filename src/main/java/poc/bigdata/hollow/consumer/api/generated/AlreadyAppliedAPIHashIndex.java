@@ -1,4 +1,4 @@
-package pl.pracuj.bigdata.hollow.consumer.api.generated;
+package poc.bigdata.hollow.consumer.api.generated;
 
 import com.netflix.hollow.api.consumer.HollowConsumer;
 import com.netflix.hollow.api.custom.HollowAPI;

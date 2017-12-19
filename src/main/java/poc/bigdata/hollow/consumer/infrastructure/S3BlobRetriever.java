@@ -15,7 +15,7 @@
  *     limitations under the License.
  *
  */
-package pl.pracuj.bigdata.hollow.consumer.infrastructure;
+package poc.bigdata.hollow.consumer.infrastructure;
 
 import com.amazonaws.SdkBaseException;
 import com.amazonaws.auth.AWSCredentials;
@@ -28,7 +28,7 @@ import com.amazonaws.services.s3.transfer.TransferManager;
 import com.netflix.hollow.api.consumer.HollowConsumer.Blob;
 import com.netflix.hollow.api.consumer.HollowConsumer.BlobRetriever;
 import com.netflix.hollow.core.memory.encoding.VarInt;
-import pl.pracuj.bigdata.hollow.producer.infrastructure.S3Publisher;
+import poc.bigdata.hollow.producer.infrastructure.S3Publisher;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;

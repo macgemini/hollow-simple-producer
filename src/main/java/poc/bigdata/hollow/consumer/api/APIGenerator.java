@@ -15,7 +15,7 @@
  *     limitations under the License.
  *
  */
-package pl.pracuj.bigdata.hollow.consumer.api;
+package poc.bigdata.hollow.consumer.api;
 
 import com.netflix.hollow.api.codegen.HollowAPIGenerator;
 import com.netflix.hollow.core.write.HollowWriteStateEngine;
