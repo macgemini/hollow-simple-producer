@@ -39,9 +39,9 @@ public class SourceDataRetriever {
      */
     public List<AlreadyApplied> retrieveAllAlreadyApplied() {
     	// change a few movie titles
-    	int numMovieNamesToChange = rand.nextInt(5);
+    	int numNamesToChange = rand.nextInt(5);
     	
-    	for(int i=0;i<numMovieNamesToChange;i++) {
+    	for(int i=0;i<numNamesToChange;i++) {
     		AlreadyApplied alreadyApplied = allAlreadyApplieds.get(rand.nextInt(allAlreadyApplieds.size()));
     	}
 
